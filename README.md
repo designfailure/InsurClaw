@@ -131,7 +131,7 @@ insurclaw/
 
 ---
 
-## Quick Start (Cursor)
+## Quick Start (Cursor🏴‍☠️)
 
 1. Open `SYSTEM_PROMPT.md` and copy the prompt block at the bottom
 2. Paste into Cursor's system prompt (Settings → Rules for AI)
@@ -141,7 +141,7 @@ insurclaw/
 
 ---
 
-## Vibe-Coding Workflow
+## Vibe-Coding🤖👨‍💻 Workflow
 
 ```
 💡 IDEA → 📊 RESEARCH → 📋 PRD → 🏗️ TECH DESIGN → 🤖 AGENT CONFIG → 🚀 BUILD MVP
