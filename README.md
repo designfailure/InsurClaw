@@ -3,6 +3,10 @@
 **Autonomous Consumer Insurance Advocate | EU Market | GenZ & Millennials**
 
 > A personal AI agent that represents you — not carriers — in the EU insurance marketplace. Research, monitor, alert, prepare, and act on your behalf. Never miss a claim. Never overpay. Never be confused by your coverage.
+> 
+https://insurclaw.manus.space/
+>
+> <img width="933" height="720" alt="image" src="https://github.com/user-attachments/assets/598b2f06-47d1-455b-8663-286084a27555" />
 
 ---
 
@@ -200,3 +204,6 @@ See `SAFETY.md` and `EU_COMPLIANCE.md` for full details.
 *InsurClaw v1.0 | EU Market | March 2026*
 
 *Build like a sharp operator. Keep the shell on. 🦞*
+https://www.linkedin.com/company/insurclaw
+<img width="200" height="200" alt="image" src="https://github.com/user-attachments/assets/2b0d9981-87c1-40c6-963b-d4d2d7a8baa3" />
+
