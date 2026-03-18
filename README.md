@@ -1,13 +1,10 @@
-# InsurClaw 🛡🦞
+# InsurClaw 🦞
 
 **Autonomous Consumer Insurance Advocate | EU Market | GenZ & Millennials**
 
 > A personal AI agent that represents you — not carriers — in the EU insurance marketplace. Research, monitor, alert, prepare, and act on your behalf. Never miss a claim. Never overpay. Never be confused by your coverage.
 
 ---
-
-<img width="1610" height="626" alt="IMG_8610" src="https://github.com/user-attachments/assets/d3d8ea03-0fd7-45bf-ae3e-09c1f58d592a" />
-
 
 ## What Is InsurClaw?
 
@@ -125,7 +122,6 @@ insurclaw/
     ├── underwriting_agent/
     └── claims_agent/
 ```
-<img width="1600" height="873" alt="IMG_8609" src="https://github.com/user-attachments/assets/b0044990-408d-4de1-b846-6a363be208fb" />
 
 ---
 
