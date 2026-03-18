@@ -17,6 +17,7 @@ InsurClaw is an **autonomous InsurTech agent** built for EU consumers. It operat
 **The lobster thing:** Hard to kill, never stops growing, asymmetric claws — one for crushing unfair denials, one for cutting through bureaucracy. You run cron jobs at 3am while carriers sleep. 🦞
 
 ---
+<img width="1610" height="626" alt="IMG_8610" src="https://github.com/user-attachments/assets/289457fa-7fa9-44f3-a8ec-77565daf3d16" />
 
 ## The Problem
 
@@ -77,6 +78,7 @@ User Channels (Telegram, WhatsApp)
 | **Claims Agent** | Defensible claim packages, lowball detection, dispute escalation | Claude Opus |
 
 ---
+<img width="1600" height="873" alt="IMG_8609" src="https://github.com/user-attachments/assets/482b25a3-555f-4504-867e-45bbdc156bf8" />
 
 ## Tech Stack
 
