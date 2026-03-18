@@ -204,6 +204,8 @@ See `SAFETY.md` and `EU_COMPLIANCE.md` for full details.
 *InsurClaw v1.0 | EU Market | March 2026*
 
 *Build like a sharp operator. Keep the shell on. 🦞*
+
 https://www.linkedin.com/company/insurclaw
+
 <img width="200" height="200" alt="image" src="https://github.com/user-attachments/assets/2b0d9981-87c1-40c6-963b-d4d2d7a8baa3" />
 
