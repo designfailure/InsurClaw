@@ -1,4 +1,4 @@
-# InsurClaw 🦞
+# InsurClaw 🛡🦞
 
 **Autonomous Consumer Insurance Advocate | EU Market | GenZ & Millennials**
 
