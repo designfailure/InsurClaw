@@ -29,7 +29,7 @@ EU consumers are structurally disadvantaged:
 - Overpay on renewals due to deliberate switching friction
 - Discover underinsurance only when filing claims
 
-**InsurClaw corrects this asymmetry.**
+**InsurClaw🛡🦞 corrects this asymmetry.**
 
 ---
 
@@ -45,7 +45,7 @@ EU consumers are structurally disadvantaged:
 
 ---
 
-## Feature Scope (MVP)
+## Feature Scope 🎯(MVP)
 
 | Module | Features |
 |--------|----------|
@@ -67,7 +67,7 @@ User Channels (Telegram, WhatsApp)
     → Memory Layer (SQLite + pgvector)
 ```
 
-### Agent Hierarchy
+### Agent🤖 Hierarchy
 
 | Agent | Role | Model |
 |-------|------|-------|
@@ -80,7 +80,7 @@ User Channels (Telegram, WhatsApp)
 ---
 <img width="1600" height="873" alt="IMG_8609" src="https://github.com/user-attachments/assets/482b25a3-555f-4504-867e-45bbdc156bf8" />
 
-## Tech Stack
+## Tech✨ Stack
 
 | Layer | Technology |
 |-------|------------|
