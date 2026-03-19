@@ -14,3 +14,15 @@ export { WhatsAppAdminNotifier } from './gateway/whatsapp-admin.js';
 export { InsurClawGateway } from './gateway/gateway.js';
 export { ConsumerAdvocateOrchestrator } from './agents/orchestrator.js';
 export { createInsurTechTools } from './tools/index.js';
+export {
+  CompanionEnvironment,
+  ClawRegistry,
+  InsurTechClaw,
+  sanitizeSessionId,
+  recommendedToolsForIntent,
+  INTENT_TOOL_REGISTRY,
+  tierForIntent,
+  tierForGatedAction,
+  getDefaultRepoRoot,
+} from './claw/index.js';
+export type { CompanionSessionMetadata, CronJTBDId, SafetyTier } from './claw/index.js';

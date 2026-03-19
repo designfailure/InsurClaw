@@ -32,9 +32,11 @@ Copy `.env.example` to `.env` and configure:
 
 - **Gateway**: Slack adapter (primary), WhatsApp admin (push)
 - **Orchestrator**: Consumer Advocate (Claude)
+- **InsurTech Claw** (`src/claw/`): Agentic loop (ingest → context → plan → execute → validate → respond), `WORKFLOW.md` intent→tool hints, safety tiers, JSONL registry (`workspace/logs/main_log.jsonl`, `agentic_log.jsonl`)
+- **Companion environment**: Per-session dirs under `workspace/sessions/{session_id}/` (policies, claims, compliance stubs) — see `WORKFLOW.md`
 - **Specialists**: Prevention, Event, Underwriting, Claims
 - **Tools**: EC 261, weather, underwriting, claims
-- **Cron**: Weather, flight, renewal, claims, audit
+- **Cron**: Weather, flight, renewal, claims, audit (JTBD wrapped with Claw registry when gateway starts)
 
 ## Tests
 
