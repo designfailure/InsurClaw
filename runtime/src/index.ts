@@ -25,4 +25,7 @@ export {
   tierForGatedAction,
   getDefaultRepoRoot,
 } from './claw/index.js';
-export type { CompanionSessionMetadata, CronJTBDId, SafetyTier } from './claw/index.js';
+export type { CompanionSessionMetadata, CronJTBDId, SafetyTier, ValidationCheckResult } from './claw/index.js';
+export { validateAgentOutput, formatValidationWarnings } from './claw/index.js';
+export { publishArtifactToHereNow, parseHereNowPublishPayload } from './export/publish-here-now.js';
+export type { PublishResult } from './export/publish-here-now.js';

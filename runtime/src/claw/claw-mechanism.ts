@@ -12,6 +12,7 @@ import { ClawRegistry } from './registry.js';
 import { getDefaultRepoRoot } from './paths.js';
 import { recommendedToolsForIntent } from './intent-tools.js';
 import { tierForIntent, type SafetyTier } from './safety.js';
+import { validateAgentOutput, formatValidationWarnings } from './validation.js';
 
 export type CronJTBDId =
   | 'weather_monitor'
@@ -132,16 +133,28 @@ export class InsurTechClaw {
       user_id: routed.userId,
     });
 
-    const response = await execute();
+    let response = await execute();
 
-    const validationOk = true;
+    const validation = validateAgentOutput(routed, response, this.memory);
+    const validationOk = validation.passed;
+    if (!validationOk) {
+      response = {
+        ...response,
+        text: formatValidationWarnings(validation.checks) + response.text,
+      };
+    }
+
     this.registry.appendAgenticLog({
       timestamp: new Date().toISOString(),
       event_type: 'step_validate',
       step: 'validate_outputs',
       session_id: sessionId,
       user_id: routed.userId,
-      details: { eu_compliance_check: validationOk, approval_pending: !!response.approvalRequested },
+      details: {
+        validation_passed: validationOk,
+        checks: validation.checks,
+        approval_pending: !!response.approvalRequested,
+      },
     });
 
     if (response.approvalRequested) {

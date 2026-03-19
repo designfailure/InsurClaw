@@ -165,6 +165,8 @@ Insurance-specific skills distributed through a ClawHub-compatible registry:
 
 **Location:** `skills/here_now/SKILL.md` — scripts in `skills/here_now/scripts/`.
 
+**Runtime wiring:** The orchestrator exposes `export_static_html` and `request_here_now_publish` (intent-scoped for `claim_filing` and `policy_comparison`). Publishing runs only after Slack approval of `share_data_external` with a JSON `action_detail` payload (`herePublish`, `artifactPath`).
+
 ---
 
 ## Skill File Locations

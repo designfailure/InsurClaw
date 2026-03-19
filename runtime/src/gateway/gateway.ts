@@ -12,6 +12,7 @@ import { ConsumerAdvocateOrchestrator } from '../agents/orchestrator.js';
 import { createInsurTechTools } from '../tools/index.js';
 import { loadAgentConfig, env } from '../config/index.js';
 import { CompanionEnvironment, ClawRegistry, InsurTechClaw } from '../claw/index.js';
+import { parseHereNowPublishPayload, publishArtifactToHereNow } from '../export/publish-here-now.js';
 
 export interface GatewayConfig {
   slackPort?: number;
@@ -46,6 +47,7 @@ export class InsurClawGateway {
       memory: this.memory,
       approvalGates: this.approvalGates,
       tools,
+      companion: this.companion,
       sendToUser: async (channel, content, threadTs) => {
         await this.slack.sendMessage(channel, threadTs ? { text: content, threadTs } : content);
       },
@@ -119,9 +121,31 @@ export class InsurClawGateway {
           actionDetail: `${pending.actionType}: ${approved ? 'approved' : 'rejected'}`,
           approvedBy: 'user',
         });
-        // Notify user of resolution
         const channelRef = pending.channelRef;
         if (channelRef) {
+          if (approved && pending.actionType === 'share_data_external') {
+            const pub = parseHereNowPublishPayload(pending.actionDetail);
+            if (pub) {
+              const result = publishArtifactToHereNow(pub.artifactPath);
+              if (result.ok && result.siteUrl) {
+                await this.slack.sendMessage(
+                  channelRef,
+                  `Approved. Published: ${result.siteUrl}\n\n(Anonymous here.now sites may expire in 24h without an API key.)`
+                );
+                this.memory.logAudit({
+                  userId: pending.userId,
+                  actionType: 'here_now_publish',
+                  actionDetail: result.siteUrl,
+                });
+                return;
+              }
+              await this.slack.sendMessage(
+                channelRef,
+                `Approved but publish failed: ${result.stderr ?? 'unknown error'}`
+              );
+              return;
+            }
+          }
           await this.slack.sendMessage(channelRef, approved ? 'Approved. Proceeding.' : 'Rejected. No action taken.');
         }
       }

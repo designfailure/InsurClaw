@@ -10,3 +10,5 @@ export type { SafetyTier } from './safety.js';
 export { INTENT_TOOL_REGISTRY, recommendedToolsForIntent } from './intent-tools.js';
 export { InsurTechClaw } from './claw-mechanism.js';
 export type { CronJTBDId } from './claw-mechanism.js';
+export { validateAgentOutput, formatValidationWarnings } from './validation.js';
+export type { ValidationCheckResult } from './validation.js';
