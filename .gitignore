@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Secrets & local env
+.env
+.env.local
+.env.*.local
+
+# Build output
+dist/
+*.tsbuildinfo
+
+# Local dev database
+runtime/data/*.db
+runtime/data/*.db-shm
+runtime/data/*.db-wal
+
+# Logs & OS
+*.log
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp

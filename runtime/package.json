@@ -1,0 +1,40 @@
+{
+  "name": "insurclaw-runtime",
+  "version": "1.0.0",
+  "description": "InsurClaw autonomous consumer insurance advocate - runtime",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "insurclaw": "dist/main.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/main.js",
+    "dev": "tsx watch src/index.ts",
+    "db:migrate": "tsx src/database/migrate.ts",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.1",
+    "@slack/bolt": "^3.17.0",
+    "@whiskeysockets/baileys": "^6.7.16",
+    "better-sqlite3": "^11.6.0",
+    "dotenv": "^16.4.5",
+    "node-cron": "^3.0.3",
+    "pino": "^9.6.0",
+    "zod": "^3.23.8",
+    "yaml": "^2.6.1"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.11",
+    "@types/node": "^22.10.1",
+    "@types/node-cron": "^3.0.11",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.6"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

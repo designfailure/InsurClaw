@@ -1,0 +1,7 @@
+# Workspace: event_agent
+# Model: Claude Sonnet
+# Role: Real-time event detection and coverage assessment.
+# Skills: event_coverage/SKILL.md
+# Cron: Every 5 min (active travel window) | Every 30 min (standby)
+# Writes: /shared/event_records/, /workspace/event_agent/claim_drafts/
+# Sub-agents: flight_delay_handler, weather_parametric, commute_disruptor, travel_guardian, avatar_protector

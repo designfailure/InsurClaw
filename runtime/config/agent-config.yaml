@@ -1,0 +1,46 @@
+# InsurClaw Agent Configuration
+# Per docs/part3-techdesign-mvp.md
+
+orchestrator:
+  id: consumer_advocate
+  model: claude-sonnet-4-20250514
+  max_turns: 20
+  approval_gates:
+    - submit_claim
+    - bind_policy
+    - send_external_email
+    - accept_settlement
+    - share_data_external
+
+agents:
+  - id: prevention_service
+    model: claude-sonnet-4-20250514
+    workspace: workspace/prevention_agent/
+    skills:
+      - skills/prevention_as_service/SKILL_prevention_as_a_service.md
+      - skills/event_coverage/SKILL_event_coverage.md
+
+  - id: event_coverage
+    model: claude-sonnet-4-20250514
+    workspace: workspace/event_agent/
+    skills:
+      - skills/event_coverage/SKILL_event_coverage.md
+
+  - id: risk_engine
+    model: claude-sonnet-4-20250514
+    workspace: workspace/underwriting_agent/
+    skills:
+      - skills/underwriting_engine/SKILL_underwriting_engine.md
+
+  - id: claims_adjuster
+    model: claude-sonnet-4-20250514
+    workspace: workspace/claims_agent/
+    skills:
+      - skills/claims_assessment/SKILL_claims_assesment.md
+
+admin:
+  whatsapp_ids: []
+  trigger_rules:
+    claim_value_threshold: 5000
+    fraud_flag: true
+    escalation_required: true

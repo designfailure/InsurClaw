@@ -1,0 +1,7 @@
+# Workspace: prevention_agent
+# Model: Claude Sonnet
+# Role: Detect and prevent insurable losses before they occur.
+# Skills: prevention_as_service/SKILL.md, event_coverage/SKILL.md
+# Cron: Every 15 min (storm season Oct-Mar) | Daily 09:00 (off-season)
+# Writes: /shared/prevention_alerts/, /workspace/prevention_agent/risk_assessment.json
+# Sub-agents: weather_monitor, maintenance_scheduler, travel_advisor, cyber_hygiene

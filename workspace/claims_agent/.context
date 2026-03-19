@@ -1,0 +1,6 @@
+# Workspace: claims_agent
+# Model: Claude Opus + computer vision models
+# Role: Claim preparation, settlement analysis, dispute escalation.
+# Skills: claims_assessment/SKILL.md
+# Writes: /shared/claim_records/, /workspace/claims_agent/evidence_packages/, /workspace/claims_agent/appeal_drafts/
+# Sub-agents: loss_adjuster, appraiser, assessor, cost_estimator, dispute_resolver

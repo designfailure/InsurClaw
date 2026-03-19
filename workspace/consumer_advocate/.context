@@ -1,0 +1,6 @@
+# Workspace: consumer_advocate (Orchestrator)
+# Model: Claude Opus 4.6
+# Role: Single point of contact. Coordinates specialists. Never delegates user trust.
+# Reads: All agent outputs in /shared/
+# Writes: /shared/claim_record/, /shared/policy_record/, /shared/recommendations/
+# Approval gates: submit_claim, bind_policy, send_external, accept_settlement, share_data

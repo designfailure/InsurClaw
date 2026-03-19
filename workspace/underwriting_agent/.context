@@ -1,0 +1,6 @@
+# Workspace: underwriting_agent
+# Model: Claude Opus / Custom actuarial models
+# Role: Risk modeling, market comparison, renewal analysis, coverage gap detection.
+# Skills: underwriting_engine/SKILL.md
+# Writes: /shared/risk_profiles/, /workspace/underwriting_agent/market_comparisons/
+# Sub-agents: property_rater, behavioral_analyst, portfolio_optimizer, market_scanner
