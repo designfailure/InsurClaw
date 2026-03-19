@@ -20,6 +20,7 @@ async function main() {
   // Start cron jobs for proactive monitoring
   const { setupCronJobs } = await import('./cron/scheduler.js');
   setupCronJobs({
+    claw: gateway.claw,
     onAlert: async (channel, message) => {
       console.log('[Cron] Alert for', channel, ':', message.slice(0, 100));
     },

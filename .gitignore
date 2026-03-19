@@ -10,6 +10,10 @@ node_modules/
 dist/
 *.tsbuildinfo
 
+# Claw companion session trees & JSONL registry (InsurClaw Agentic flow)
+workspace/sessions/
+workspace/logs/
+
 # Local dev database
 runtime/data/*.db
 runtime/data/*.db-shm

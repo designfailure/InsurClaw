@@ -71,6 +71,11 @@ export class MemoryManager {
     return user;
   }
 
+  getUserById(userId: string): User | null {
+    const row = this.db.prepare('SELECT * FROM users WHERE id = ?').get(userId) as User | undefined;
+    return row ?? null;
+  }
+
   getPolicies(userId: string): Policy[] {
     return this.db.prepare(
       'SELECT * FROM policies WHERE user_id = ? ORDER BY created_at DESC'

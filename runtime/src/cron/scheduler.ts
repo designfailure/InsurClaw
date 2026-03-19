@@ -7,10 +7,13 @@ import cron from 'node-cron';
 import { getDatabase } from '../memory/database.js';
 import { createInsurTechTools } from '../tools/index.js';
 import { runSpecialist } from '../agents/specialists/index.js';
+import type { InsurTechClaw, CronJTBDId } from '../claw/claw-mechanism.js';
 
 export interface CronConfig {
   slackNotifyChannel?: string;
   onAlert?: (channel: string, message: string) => Promise<void>;
+  /** When set, cron JTBD runs are logged through the InsurTech Claw registry (Agentic flow.md) */
+  claw?: InsurTechClaw;
 }
 
 const tools = createInsurTechTools();
@@ -23,30 +26,42 @@ export function setupCronJobs(config: CronConfig): void {
   };
 
   cron.schedule(isStormSeason() ? '*/15 * * * *' : '0 9 * * *', async () => {
-    await runWeatherCheck(config);
+    await wrapCron(config, 'weather_monitor', () => runWeatherCheck(config));
   });
 
   // Flight delay polling: Every 5 min (simplified - production would be travel-window aware)
   cron.schedule('*/5 * * * *', async () => {
-    await runFlightPoll(config);
+    await wrapCron(config, 'flight_poll', () => runFlightPoll(config));
   });
 
   // Renewal checks: Daily at 09:00 CET
   cron.schedule('0 9 * * *', async () => {
-    await runRenewalCheck(config);
+    await wrapCron(config, 'renewal_check', () => runRenewalCheck(config));
   });
 
   // Claims status: Every 30 min for active claims
   cron.schedule('*/30 * * * *', async () => {
-    await runClaimsStatusCheck(config);
+    await wrapCron(config, 'claims_status', () => runClaimsStatusCheck(config));
   });
 
   // Audit log integrity: Daily at 03:30
   cron.schedule('30 3 * * *', async () => {
-    await runAuditIntegrityCheck();
+    await wrapCron(config, 'audit_integrity', () => runAuditIntegrityCheck());
   });
 
   console.log('[Cron] Scheduler started');
+}
+
+async function wrapCron(
+  config: CronConfig,
+  jtbd: CronJTBDId,
+  fn: () => Promise<void>
+): Promise<void> {
+  if (config.claw) {
+    await config.claw.executeCronJTBD(jtbd, { sessionId: `cron:${jtbd}` }, fn);
+  } else {
+    await fn();
+  }
 }
 
 async function runWeatherCheck(config: CronConfig): Promise<void> {

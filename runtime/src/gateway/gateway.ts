@@ -11,6 +11,7 @@ import { ApprovalGateManager } from '../approval/gates.js';
 import { ConsumerAdvocateOrchestrator } from '../agents/orchestrator.js';
 import { createInsurTechTools } from '../tools/index.js';
 import { loadAgentConfig, env } from '../config/index.js';
+import { CompanionEnvironment, ClawRegistry, InsurTechClaw } from '../claw/index.js';
 
 export interface GatewayConfig {
   slackPort?: number;
@@ -20,14 +21,24 @@ export class InsurClawGateway {
   private slack: SlackAdapter;
   private whatsappAdmin: WhatsAppAdminNotifier | null = null;
   private router: GatewayRouter;
-  private memory: MemoryManager;
+  readonly memory: MemoryManager;
   private approvalGates: ApprovalGateManager;
   private orchestrator: ConsumerAdvocateOrchestrator;
+  readonly companion: CompanionEnvironment;
+  readonly clawRegistry: ClawRegistry;
+  readonly claw: InsurTechClaw;
   private config = loadAgentConfig();
 
   constructor(config?: GatewayConfig) {
     this.memory = new MemoryManager();
     this.approvalGates = new ApprovalGateManager(this.config);
+    this.companion = new CompanionEnvironment();
+    this.clawRegistry = new ClawRegistry(this.companion.logsRoot);
+    this.claw = new InsurTechClaw({
+      companion: this.companion,
+      registry: this.clawRegistry,
+      memory: this.memory,
+    });
 
     const tools = createInsurTechTools();
 
@@ -73,7 +84,7 @@ export class InsurClawGateway {
     this.slack.onMessage(async (msg) => {
       try {
         const routed = await this.router.route(msg);
-        const response = await this.orchestrator.run(routed);
+        const response = await this.claw.processUserTurn(routed, () => this.orchestrator.run(routed));
 
         if (response.approvalRequested) {
           await this.slack.sendWithApprovalButtons(
