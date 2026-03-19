@@ -10,6 +10,9 @@ node_modules/
 dist/
 *.tsbuildinfo
 
+# here.now local state (claim tokens)
+.herenow/
+
 # Claw companion session trees & JSONL registry (InsurClaw Agentic flow)
 workspace/sessions/
 workspace/logs/
