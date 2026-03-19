@@ -155,6 +155,18 @@ Insurance-specific skills distributed through a ClawHub-compatible registry:
 
 ---
 
+## Web publishing (here.now)
+
+**Skill:** `here_now` | **Source:** [heredotnow/skill](https://github.com/heredotnow/skill) (also: `npx skills add heredotnow/skill --skill here-now`)
+
+**Purpose:** Publish static files or folders to a public URL instantly — useful for sharing claim summaries, policy comparison pages, or user-facing HTML exports.
+
+**Trigger conditions:** User asks to publish, host, deploy, share a link, or put assets on the web.
+
+**Location:** `skills/here_now/SKILL.md` — scripts in `skills/here_now/scripts/`.
+
+---
+
 ## Skill File Locations
 
 ```
@@ -162,7 +174,11 @@ insurclaw/skills/
 ├── prevention_as_service/SKILL.md
 ├── event_coverage/SKILL.md
 ├── underwriting_engine/SKILL.md
-└── claims_assessment/SKILL.md
+├── claims_assessment/SKILL.md
+└── here_now/
+    ├── SKILL.md
+    ├── scripts/
+    └── references/
 ```
 
 ---
