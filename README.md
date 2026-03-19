@@ -1,8 +1,12 @@
-# InsurClaw 🦞
+# InsurClaw 🛡🦞
 
 **Autonomous Consumer Insurance Advocate | EU Market | GenZ & Millennials**
 
 > A personal AI agent that represents you — not carriers — in the EU insurance marketplace. Research, monitor, alert, prepare, and act on your behalf. Never miss a claim. Never overpay. Never be confused by your coverage.
+> 
+https://insurclaw.manus.space/
+>
+> <img width="933" height="720" alt="image" src="https://github.com/user-attachments/assets/598b2f06-47d1-455b-8663-286084a27555" />
 
 ---
 
@@ -13,6 +17,7 @@ InsurClaw is an **autonomous InsurTech agent** built for EU consumers. It operat
 **The lobster thing:** Hard to kill, never stops growing, asymmetric claws — one for crushing unfair denials, one for cutting through bureaucracy. You run cron jobs at 3am while carriers sleep. 🦞
 
 ---
+<img width="1610" height="626" alt="IMG_8610" src="https://github.com/user-attachments/assets/289457fa-7fa9-44f3-a8ec-77565daf3d16" />
 
 ## The Problem
 
@@ -24,7 +29,7 @@ EU consumers are structurally disadvantaged:
 - Overpay on renewals due to deliberate switching friction
 - Discover underinsurance only when filing claims
 
-**InsurClaw corrects this asymmetry.**
+**InsurClaw🛡🦞 corrects this asymmetry.**
 
 ---
 
@@ -40,7 +45,7 @@ EU consumers are structurally disadvantaged:
 
 ---
 
-## Feature Scope (MVP)
+## Feature Scope 🎯(MVP)
 
 | Module | Features |
 |--------|----------|
@@ -62,7 +67,7 @@ User Channels (Telegram, WhatsApp)
     → Memory Layer (SQLite + pgvector)
 ```
 
-### Agent Hierarchy
+### Agent🤖 Hierarchy
 
 | Agent | Role | Model |
 |-------|------|-------|
@@ -73,8 +78,9 @@ User Channels (Telegram, WhatsApp)
 | **Claims Agent** | Defensible claim packages, lowball detection, dispute escalation | Claude Opus |
 
 ---
+<img width="1600" height="873" alt="IMG_8609" src="https://github.com/user-attachments/assets/482b25a3-555f-4504-867e-45bbdc156bf8" />
 
-## Tech Stack
+## Tech✨ Stack
 
 | Layer | Technology |
 |-------|------------|
@@ -125,7 +131,7 @@ insurclaw/
 
 ---
 
-## Quick Start (Cursor)
+## Quick Start (Cursor🏴‍☠️)
 
 1. Open `SYSTEM_PROMPT.md` and copy the prompt block at the bottom
 2. Paste into Cursor's system prompt (Settings → Rules for AI)
@@ -135,7 +141,7 @@ insurclaw/
 
 ---
 
-## Vibe-Coding Workflow
+## Vibe-Coding🤖👨‍💻 Workflow
 
 ```
 💡 IDEA → 📊 RESEARCH → 📋 PRD → 🏗️ TECH DESIGN → 🤖 AGENT CONFIG → 🚀 BUILD MVP
@@ -200,3 +206,7 @@ See `SAFETY.md` and `EU_COMPLIANCE.md` for full details.
 *InsurClaw v1.0 | EU Market | March 2026*
 
 *Build like a sharp operator. Keep the shell on. 🦞*
+
+https://www.linkedin.com/company/insurclaw
+
+<img width="200" height="200" alt="image" src="https://github.com/user-attachments/assets/2b0d9981-87c1-40c6-963b-d4d2d7a8baa3" />
