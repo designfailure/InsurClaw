@@ -1,0 +1,12 @@
+# Future gateway / worker image builds
+.git
+.gitignore
+.env
+.env.*
+docs/
+node_modules/
+dist/
+.idea/
+.vscode/
+*.log
+workspace/sessions/

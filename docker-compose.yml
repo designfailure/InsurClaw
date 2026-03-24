@@ -1,0 +1,27 @@
+# InsurClaw — local development database (pgvector).
+# Usage: copy .env.example to .env, set POSTGRES_PASSWORD, then:
+#   docker compose up -d
+#
+# Postgres is bound to 127.0.0.1 only (not all interfaces).
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: insurclaw-postgres
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-5432}:5432"
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-insurclaw}
+      POSTGRES_USER: ${POSTGRES_USER:-insurclaw}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-insurclaw} -d ${POSTGRES_DB:-insurclaw}"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  pgdata:

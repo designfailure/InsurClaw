@@ -19,6 +19,10 @@ runtime/data/*.db
 runtime/data/*.db-shm
 runtime/data/*.db-wal
 
+# Session workspace (runtime state; keep tree via .gitkeep)
+workspace/sessions/*
+!workspace/sessions/.gitkeep
+
 # Logs & OS
 *.log
 .DS_Store
