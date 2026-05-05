@@ -55,9 +55,9 @@ docker compose up -d
 
 Runtime session files under `workspace/sessions/` are gitignored; the directory is kept with `workspace/sessions/.gitkeep`. When you add a gateway, bind-mount that tree or mirror it into your agent workspace.
 
-## IronClaw / worker pattern (reference)
+## Worker / sandbox pattern (reference)
 
-For **sandboxed tool execution**, see [ironclaw-main Dockerfile.worker](../../ironclaw-main/Dockerfile.worker): a separate worker image with `/workspace` and tooling for isolated jobs. InsurClaw may adopt similar patterns when a gateway exists.
+For **sandboxed tool execution**, prefer a dedicated worker image with `/workspace` and minimal tooling for isolated jobs (same idea as OpenClaw non-main sandboxes above). InsurClaw can adopt that when a gateway exists.
 
 ## OpenClaw alignment (Phase 2+)
 
