@@ -356,6 +356,7 @@ The goal is not to produce the largest possible code diff. The goal is to create
 For a detailed workflow, see:
 
 - [`docs/GSTACK_VIBECODING_PLAYBOOK.md`](docs/GSTACK_VIBECODING_PLAYBOOK.md)
+- [`docs/INSURCLAW_PUBLIC_SPEC_PAPER.md`](docs/INSURCLAW_PUBLIC_SPEC_PAPER.md)
 
 ---
 
@@ -372,6 +373,7 @@ Read these files in order:
 5. `EU_COMPLIANCE.md` - GDPR, IDD, EU AI Act considerations.
 6. `WORKFLOW.md` - runtime workflow and cron patterns.
 7. `docs/GSTACK_VIBECODING_PLAYBOOK.md` - how to build with a GStack-like workflow.
+8. `docs/INSURCLAW_PUBLIC_SPEC_PAPER.md` - public-facing concept spec for posts, threads, and stakeholder sharing.
 
 Use this path when you are evaluating the startup/product idea.
 
@@ -478,6 +480,7 @@ Slack
 ├── Components.md
 ├── docs/
 │   ├── GSTACK_VIBECODING_PLAYBOOK.md
+│   ├── INSURCLAW_PUBLIC_SPEC_PAPER.md
 │   ├── OPENCLAW_INTEGRATION.md
 │   ├── part1-deepresearch.md
 │   ├── part2-prd-mvp.md
