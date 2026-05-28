@@ -81,6 +81,7 @@ EU consumers are structurally disadvantaged in insurance:
 - They are asked to trust agents, brokers, and insurers who may not be economically aligned with them.
 
 InsurClaw corrects the asymmetry by becoming the consumer's own insurance advocate.
+<img width="863" height="741" alt="core_modules" src="https://github.com/user-attachments/assets/7a3f8a3b-99d1-43a2-8be3-7bd005fef4ca" />
 
 ---
 
