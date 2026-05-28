@@ -1,5 +1,9 @@
 # InsurClaw - GStack for Consumer Insurance Advocacy
 
+<img width="1081" height="992" alt="InsurClaw_tinlogo" src="https://github.com/user-attachments/assets/c04757ba-5849-46c8-909d-ffe1445cebb1" />
+
+
+
 **InsurClaw** is a domain-specific AI operating system for EU insurance consumers: a loyal agent that monitors risk, detects claimable events, compares renewals, prepares claim packages, and protects the user with explicit approval gates.
 
 This repository refactors the original **InsurClaw** concept through the lens of **GStack**: a specialist-driven, vibecoding software factory where an AI team helps define, design, decompose, deliver, review, QA, ship, and learn.
