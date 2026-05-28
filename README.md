@@ -292,7 +292,8 @@ Implemented reference:
 
 Documentation note:
 
-- Earlier product docs mention Telegram as the primary channel. The current runnable implementation uses Slack.
+ <img width="987" height="778" alt="image" src="https://github.com/user-attachments/assets/bc5fa621-8a01-4b75-aa77-5209050469cc" />
+ 
 
 ---
 
