@@ -5,6 +5,10 @@
 This repository refactors the original **InsurClaw** concept through the lens of **GStack**: a specialist-driven, vibecoding software factory where an AI team helps define, design, decompose, deliver, review, QA, ship, and learn.
 
 > GStack is not copied or vendored here. The concept is adapted as an operating model: clear specialist roles, command-like workflows, review gates, real QA, release discipline, and memory that compounds over time.
+>
+> 
+<img width="684" height="1133" alt="insurclaw_claud-desktop" src="https://github.com/user-attachments/assets/53977c26-d16f-4e3c-9d89-c09694817048" />
+
 
 ---
 
