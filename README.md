@@ -1,4 +1,4 @@
-# InsurClaw - GStack for Consumer Insurance Advocacy
+# InsurClaw🛡🦞 - GStack🧠 for Consumer Insurance Advocacy
 
 <img width="1081" height="992" alt="InsurClaw_tinlogo" src="https://github.com/user-attachments/assets/c04757ba-5849-46c8-909d-ffe1445cebb1" />
 
