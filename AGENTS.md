@@ -259,3 +259,32 @@ When specialist agents produce divergent assessments:
 ```
 
 Performance data feeds back into the voting weight mechanism. Agents with better track records carry more weight in consensus decisions.
+
+---
+
+## Cursor Cloud specific instructions
+
+### Project layout
+
+Single Node.js/TypeScript service at `runtime/`. No monorepo, no Docker, no additional services.
+
+### Commands reference
+
+All commands run from `runtime/`:
+
+| Task | Command |
+|------|---------|
+| Install deps | `npm install` |
+| Migrate DB | `npm run db:migrate` |
+| Build (tsc) | `npm run build` |
+| Tests (vitest) | `npm test` |
+| Dev server | `npm run dev` (watches `src/index.ts` — exports only; to start the full gateway use `npx tsx src/main.ts`) |
+| Production start | `npm start` |
+
+### Non-obvious caveats
+
+- **`npm run dev` does not start the gateway.** The dev script watches `src/index.ts` which only re-exports modules. To actually start the Slack gateway + cron scheduler, run `npx tsx src/main.ts` from `runtime/`.
+- **Three secrets are hard-gated at startup:** `SLACK_BOT_TOKEN`, `SLACK_SIGNING_SECRET`, and `ANTHROPIC_API_KEY`. Without valid values in `runtime/.env`, `main.ts` exits immediately. Tests (`npm test`) do **not** require these secrets.
+- **SQLite database is auto-created** at `runtime/data/insurclaw.db` by `npm run db:migrate`. No external database needed for development.
+- **No ESLint/Prettier configured.** The project has no linter setup; TypeScript strict-mode compilation (`npm run build`) is the primary code quality check.
+- **Node.js >= 20 required.** The VM provides v22 via nvm, which satisfies this.
