@@ -259,3 +259,31 @@ When specialist agents produce divergent assessments:
 ```
 
 Performance data feeds back into the voting weight mechanism. Agents with better track records carry more weight in consensus decisions.
+
+---
+
+## Cursor Cloud specific instructions
+
+### Project layout
+
+The runtime application lives in `/workspace/runtime/` (the only `package.json`). Everything else at the repo root is documentation, agent prompt configs, and skill definitions.
+
+### Key commands (all run from `runtime/`)
+
+| Task | Command |
+|------|---------|
+| Install deps | `npm install` |
+| DB migration | `npm run db:migrate` (creates SQLite at `./data/insurclaw.db`) |
+| Build | `npm run build` (TypeScript → `dist/`) |
+| Tests | `npm test` (vitest; uses in-memory SQLite, no external services needed) |
+| Dev watch | `npm run dev` (tsx watch on `src/index.ts`) |
+| Start server | `npm start` (requires `SLACK_BOT_TOKEN`, `SLACK_SIGNING_SECRET`, `ANTHROPIC_API_KEY`) |
+
+### Gotchas
+
+- **Tests are fully self-contained**: `vitest.setup.ts` sets `INSURCLAW_DB_PATH=:memory:`, so no database file or external service is needed.
+- **No Docker required for dev**: SQLite is the default database. The `docker-compose.yml` at the repo root is for a PostgreSQL/pgvector container that is only used in production (Phase 2 migration path).
+- **App won't start without Slack credentials**: `main.ts` exits immediately if `SLACK_BOT_TOKEN` or `SLACK_SIGNING_SECRET` are missing. Set these in `runtime/.env` (copy from `.env.example`).
+- **`npm run dev` watches `src/index.ts`** (module exports), not `src/main.ts` (server entry). To dev-test the actual Slack gateway, run `npx tsx watch src/main.ts` instead.
+- **Node.js >= 20 required**: the environment ships v22; no version manager changes needed.
+- **`punycode` deprecation warning** from `tsx watch` is harmless and can be ignored.
