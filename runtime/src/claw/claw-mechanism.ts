@@ -18,7 +18,8 @@ export type CronJTBDId =
   | 'flight_poll'
   | 'renewal_check'
   | 'claims_status'
-  | 'audit_integrity';
+  | 'audit_integrity'
+  | 'gdpr_consent_review';
 
 export interface InsurTechClawOptions {
   companion: CompanionEnvironment;

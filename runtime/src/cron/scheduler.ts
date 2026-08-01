@@ -7,6 +7,7 @@ import cron from 'node-cron';
 import { getDatabase } from '../memory/database.js';
 import { createInsurTechTools } from '../tools/index.js';
 import { runSpecialist } from '../agents/specialists/index.js';
+import { formatGdprReviewSummary, runGdprConsentReview } from './gdpr-review.js';
 import type { InsurTechClaw, CronJTBDId } from '../claw/claw-mechanism.js';
 
 export interface CronConfig {
@@ -47,6 +48,11 @@ export function setupCronJobs(config: CronConfig): void {
   // Audit log integrity: Daily at 03:30
   cron.schedule('30 3 * * *', async () => {
     await wrapCron(config, 'audit_integrity', () => runAuditIntegrityCheck());
+  });
+
+  // GDPR consent review: Monthly on the 1st at 07:00 UTC (WORKFLOW.md)
+  cron.schedule('0 7 1 * *', async () => {
+    await wrapCron(config, 'gdpr_consent_review', () => runGdprReviewJob(config));
   });
 
   console.log('[Cron] Scheduler started');
@@ -165,5 +171,19 @@ async function runAuditIntegrityCheck(): Promise<void> {
     // Production: hash chain verification
   } catch (err) {
     console.error('[Cron] Audit integrity failed:', err);
+  }
+}
+
+async function runGdprReviewJob(config: CronConfig): Promise<void> {
+  try {
+    const result = runGdprConsentReview();
+    const summary = formatGdprReviewSummary(result);
+    console.log('[Cron] GDPR consent review:', summary.replace(/\n/g, ' | '));
+
+    if (!result.healthy && config.slackNotifyChannel && config.onAlert) {
+      await config.onAlert(config.slackNotifyChannel, summary);
+    }
+  } catch (err) {
+    console.error('[Cron] GDPR consent review failed:', err);
   }
 }
