@@ -1,6 +1,6 @@
 /**
  * Cron Scheduler - Proactive monitoring per WORKFLOW.md
- * Weather, flight, renewal, claims, audit integrity
+ * Weather, flight, renewal, claims, audit integrity, GDPR consent review
  */
 
 import cron from 'node-cron';
@@ -8,6 +8,7 @@ import { getDatabase } from '../memory/database.js';
 import { createInsurTechTools } from '../tools/index.js';
 import { runSpecialist } from '../agents/specialists/index.js';
 import type { InsurTechClaw, CronJTBDId } from '../claw/claw-mechanism.js';
+import { runGdprConsentReview } from './gdpr-review.js';
 
 export interface CronConfig {
   slackNotifyChannel?: string;
@@ -47,6 +48,13 @@ export function setupCronJobs(config: CronConfig): void {
   // Audit log integrity: Daily at 03:30
   cron.schedule('30 3 * * *', async () => {
     await wrapCron(config, 'audit_integrity', () => runAuditIntegrityCheck());
+  });
+
+  // GDPR consent review: Monthly on the 1st at 07:00 UTC (WORKFLOW.md)
+  cron.schedule('0 7 1 * *', async () => {
+    await wrapCron(config, 'gdpr_consent_review', async () => {
+      await runGdprConsentReview(config);
+    });
   });
 
   console.log('[Cron] Scheduler started');
